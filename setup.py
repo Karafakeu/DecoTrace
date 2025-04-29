@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='decotrace',
-      version='0.1',
+      version='1.0',
       description='A decorator based, trace-like debugger for python',
       url='https://github.com/Karafakeu/DecoTrace',
       author='Jakub Kubin',
