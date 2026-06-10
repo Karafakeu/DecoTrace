@@ -1,12 +1,16 @@
-import functools
+import sys
+import linecache
+from importlib.metadata import version, PackageNotFoundError
 
-__version__ = "1.0.0"
+try:
+    __version__ = version("decotrace-debug")
+except PackageNotFoundError:
+    __version__ = "unknown"
 
 
 def decotrace(func):
-    @functools.wraps(func)
     def wrapper(*args, **kwargs):
-        print(f"Starting DecoTrace {__version__}")
+        print(f"Starting DecoTrace {__version__} -> {func.__name__}()")
         result = func(*args, **kwargs)
         print("Stopping DecoTrace")
         return result
